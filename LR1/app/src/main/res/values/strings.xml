@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">LR1</string>
+    <string name="show_version_name">show version name</string>
+    <string name="show_device_id">show device ID</string>
 </resources>
