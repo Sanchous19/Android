@@ -1,6 +1,6 @@
 apply plugin: 'com.android.application'
 
-def defineVersionName = {
+def defineVersionName() {
     def stdout = new ByteArrayOutputStream()
     exec {
         commandLine 'git', 'describe', '--long'
@@ -12,6 +12,11 @@ def defineVersionName = {
     return m[0]
 }
 
+def defineVersionCode() {
+    def (major, minor, patch) = defineVersionName().tokenize('.')
+    return 1000 * major.toInteger() + 100 * minor.toInteger() + patch.toInteger() + 1
+}
+
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.2"
@@ -19,7 +24,7 @@ android {
         applicationId "sanchous19.com"
         minSdkVersion 26
         targetSdkVersion 29
-        versionCode 1
+        versionCode defineVersionCode()
         versionName defineVersionName()
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
