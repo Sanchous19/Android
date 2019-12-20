@@ -1,0 +1,27 @@
+<resources>
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="CalculatorButton">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:textSize">30sp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="GrayCalculatorButton" parent="CalculatorButton">
+        <item name="android:background">@color/gray</item>
+    </style>
+
+    <style name="OrangeCalculatorButton" parent="CalculatorButton">
+        <item name="android:background">@color/orange</item>
+    </style>
+
+    <style name="DarkCalculatorButton" parent="CalculatorButton">
+        <item name="android:background">@color/black</item>
+    </style>
+
+</resources>

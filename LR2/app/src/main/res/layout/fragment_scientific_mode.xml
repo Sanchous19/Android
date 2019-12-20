@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ScientificModeFragment">
+
+    <Button
+        android:id="@+id/sinButton"
+        android:text="@string/sin"
+        style="@style/DarkCalculatorButton"
+        app:layout_constraintStart_toEndOf="@+id/guideline5"
+        app:layout_constraintEnd_toStartOf="@+id/cosButton"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/ctgButton"
+        app:layout_constraintHorizontal_bias="0.5" />
+
+    <Button
+        android:id="@+id/cosButton"
+        android:text="@string/cos"
+        style="@style/DarkCalculatorButton"
+        app:layout_constraintStart_toEndOf="@+id/sinButton"
+        app:layout_constraintEnd_toStartOf="@+id/tgButton"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/lgButton"
+        app:layout_constraintHorizontal_bias="0.5" />
+
+    <Button
+        android:id="@+id/tgButton"
+        android:text="@string/tg"
+        style="@style/DarkCalculatorButton"
+        app:layout_constraintStart_toEndOf="@+id/cosButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/lnButton"
+        app:layout_constraintHorizontal_bias="0.5" />
+
+    <Button
+        android:id="@+id/ctgButton"
+        android:text="@string/ctg"
+        style="@style/DarkCalculatorButton"
+        app:layout_constraintStart_toStartOf="@+id/guideline5"
+        app:layout_constraintEnd_toStartOf="@+id/lgButton"
+        app:layout_constraintTop_toBottomOf="@+id/sinButton"
+        app:layout_constraintBottom_toTopOf="@+id/piButton"
+        app:layout_constraintHorizontal_bias="0.5" />
+
+    <Button
+        android:id="@+id/lgButton"
+        android:text="@string/lg"
+        style="@style/DarkCalculatorButton"
+        app:layout_constraintStart_toEndOf="@+id/ctgButton"
+        app:layout_constraintEnd_toStartOf="@+id/lnButton"
+        app:layout_constraintTop_toBottomOf="@+id/cosButton"
+        app:layout_constraintBottom_toTopOf="@+id/eButton"
+        app:layout_constraintHorizontal_bias="0.5" />
+
+    <Button
+        android:id="@+id/lnButton"
+        android:text="@string/ln"
+        style="@style/DarkCalculatorButton"
+        app:layout_constraintStart_toEndOf="@+id/lgButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tgButton"
+        app:layout_constraintBottom_toTopOf="@+id/sqrtButton"
+        app:layout_constraintHorizontal_bias="0.5" />
+
+    <Button
+        android:id="@+id/piButton"
+        android:text="@string/pi"
+        style="@style/DarkCalculatorButton"
+        app:layout_constraintStart_toEndOf="@+id/guideline5"
+        app:layout_constraintEnd_toStartOf="@+id/eButton"
+        app:layout_constraintTop_toBottomOf="@+id/ctgButton"
+        app:layout_constraintBottom_toTopOf="@+id/openBracketButton"
+        app:layout_constraintHorizontal_bias="0.5" />
+
+    <Button
+        android:id="@+id/eButton"
+        android:text="@string/exp"
+        style="@style/DarkCalculatorButton"
+        app:layout_constraintStart_toEndOf="@+id/piButton"
+        app:layout_constraintEnd_toStartOf="@+id/sqrtButton"
+        app:layout_constraintTop_toBottomOf="@+id/lgButton"
+        app:layout_constraintBottom_toTopOf="@+id/closeBracketButton"
+        app:layout_constraintHorizontal_bias="0.5" />
+
+    <Button
+        android:id="@+id/sqrtButton"
+        android:text="@string/sqrt"
+        style="@style/DarkCalculatorButton"
+        app:layout_constraintStart_toEndOf="@+id/eButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lnButton"
+        app:layout_constraintBottom_toTopOf="@+id/factorialButton"
+        app:layout_constraintHorizontal_bias="0.5" />
+
+    <Button
+        android:id="@+id/openBracketButton"
+        android:text="@string/open_bracket"
+        style="@style/DarkCalculatorButton"
+        app:layout_constraintStart_toEndOf="@+id/guideline5"
+        app:layout_constraintEnd_toStartOf="@+id/closeBracketButton"
+        app:layout_constraintTop_toBottomOf="@+id/piButton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.5" />
+
+    <Button
+        android:id="@+id/closeBracketButton"
+        android:text="@string/close_bracket"
+        style="@style/DarkCalculatorButton"
+        app:layout_constraintStart_toEndOf="@+id/openBracketButton"
+        app:layout_constraintEnd_toStartOf="@+id/factorialButton"
+        app:layout_constraintTop_toBottomOf="@+id/eButton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.5" />
+
+    <Button
+        android:id="@+id/factorialButton"
+        android:text="@string/factorial"
+        style="@style/DarkCalculatorButton"
+        app:layout_constraintStart_toEndOf="@+id/closeBracketButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sqrtButton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.5" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="65dp" />
+
+    <Button
+        android:id="@+id/toBaseModeButton"
+        android:text="@string/to_base_mode"
+        style="@style/DarkCalculatorButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/guideline5"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

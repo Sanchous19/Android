@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/basic_mode">
+
+    <fragment
+        android:id="@+id/basic_mode"
+        android:name="sanchous19.com.BaseModeFragment"
+        tools:layout="@layout/fragment_base_mode" >
+        <action
+            android:id="@+id/action_basic_to_scientific_mode"
+            app:destination="@id/scientific_mode" />
+    </fragment>
+    <fragment
+        android:id="@+id/scientific_mode"
+        android:name="sanchous19.com.ScientificModeFragment"
+        tools:layout="@layout/fragment_scientific_mode" >
+        <action
+            android:id="@+id/action_scientific_to_basic_mode"
+            app:destination="@id/basic_mode" />
+    </fragment>
+</navigation>
