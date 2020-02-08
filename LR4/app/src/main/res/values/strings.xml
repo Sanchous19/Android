@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Flipboard</string>
+    <string name="enter_rss">Enter rss link:</string>
+    <string name="rss">https://www.popmech.ru/out/public-all.xml</string>
+</resources>
