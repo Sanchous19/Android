@@ -10,12 +10,13 @@ import java.util.Objects;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
@@ -30,7 +31,6 @@ public class MainActivity extends AppCompatActivity {
     NoteAdapter adapter;
     NoteDao dao;
     Comparator<Note> comparator;
-    com.google.android.material.floatingactionbutton.FloatingActionButton sortButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +38,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         dao = App.getInstance().getDao();
         notesView = findViewById(R.id.notes);
-        sortButton = findViewById(R.id.sort);
 
         notesView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -90,22 +89,32 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    @SuppressLint("ShowToast")
-    public void sortClick(View view) {
-        if(comparator == Note.dateComparator){
-            comparator = Note.titleComparator;
-            InstantToast.showText(getApplicationContext(), "Sorted by title");
-        }
-        else {
-            comparator = Note.dateComparator;
-            InstantToast.showText(getApplicationContext(), "Sorted by date");
-        }
-        setSorted();
-    }
-
     public void clearClick(View view) {
         searchBar.setText("");
         search();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        String toastText = "";
+        if (id == R.id.sortByDateItem) {
+            comparator = Note.dateComparator;
+            toastText = "Sorted by date";
+        }
+        else if (id == R.id.sortByTitleItem) {
+            comparator = Note.titleComparator;
+            toastText = "Sorted by title";
+        }
+        InstantToast.showText(getApplicationContext(), toastText);
+        setSorted();
+        return super.onOptionsItemSelected(item);
     }
 
     private void search(){
@@ -117,12 +126,12 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
 
-        List<String> tags = new ArrayList<>(Arrays.asList(searchBar.getText().toString().split(", ")));
+        List<String> tags = new ArrayList<>(Arrays.asList(searchBar.getText().toString().split(" ")));
         String lastTag = tags.get(tags.size() - 1);
         tags.remove(tags.size() - 1);
 
         for(Note note : notes) {
-            List<String> noteTags = Arrays.asList(note.tags.split(", "));
+            List<String> noteTags = Arrays.asList(note.tags.split(" "));
 
             if(noteTags.containsAll(tags)) {
                 Boolean isTrue = false;
